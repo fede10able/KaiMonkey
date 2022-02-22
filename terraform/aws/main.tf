@@ -38,6 +38,13 @@ module "compute" {
   elb_url = module.network.elb_url
 }
 
+module "eks" {
+  source = "./modules/eks"
+
+  aws_default_region = var.region
+
+}
+
 resource "local_file" "web-access" {
   content  = <<JSON
 {
